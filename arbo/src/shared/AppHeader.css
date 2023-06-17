@@ -23,7 +23,6 @@
 	height:84px;
 	margin: 10px 5px ;
 	display:block;
-	line-height: 50px;
 	border: 10px solid #171;
 	border-radius:10px;
 	background-color: #171;
@@ -31,7 +30,8 @@
 
 .header-navbar ul li a{
 	height: 100%;
-	display:block;
+	display: flex;
+	justify-content: start;
 	color: #fff;
 	font-size: 20px;
 	padding: 7px 13px;
@@ -39,6 +39,11 @@
 	font-weight: bolder;
 	background-color: #2a2;
 	border-radius: 10px;
+}
+
+.header-navbar ul li a > *{
+	display: block;
+	margin:0px 5px;
 }
 
 a:active, a:hover{
@@ -74,7 +79,6 @@ li:hover{
 
 ul{
 	position:fixed;
-	width:60%;
 	min-width: 225px;
 	max-width: 420px;
 	height: 100%;
@@ -102,4 +106,23 @@ ul{
 	background-color: #171;
 	padding-top:5px;
 	padding-bottom: 5px;
+}
+
+#icon_user{
+	border: solid;
+	border-radius: 10px;
+}
+
+#icon_tree{
+	color:#fff
+}
+
+.li_fa{
+	font-size: 45px; /**/
+	text-align: center;
+	color: #fff;
+}
+
+.li_text{
+	line-height: 50px;
 }
