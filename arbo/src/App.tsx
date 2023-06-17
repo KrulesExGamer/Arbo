@@ -7,11 +7,10 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Logoff from './pages/Logoff';
 import Recovery from './pages/Recovery';
+import About from './pages/About';
 import { STD_USER_STATE, UserContext } from './Context';
 import TestPage from './pages/TestPage';
 import NotFound from './pages/NotFound';
-import AppHeader from './shared/AppHeader';
-import AppFooter from './shared/AppFooter';
 
 
 const App = () => {
@@ -30,6 +29,7 @@ const App = () => {
             <Route path='login' element={<Login />}></Route>
             <Route path='logoff' element={<Logoff />}></Route>
             <Route path='recovery' element={<Recovery />}></Route>
+            <Route path='about' element={<About />}></Route>
             <Route path='not-found' element={<NotFound />}></Route>
             <Route path='test' element={<TestPage />}></Route>
           </Route>

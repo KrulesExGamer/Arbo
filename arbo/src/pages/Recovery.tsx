@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { validateAccount } from '../utils/apiCalls';
+// import { validateAccount } from '../utils/apiCalls';
 import SimpleHeader from '../components/SimpleHeader';
 import '../shared_styles/alignment.css';
 import '../shared_styles/unselectable.css';
@@ -29,8 +29,8 @@ const Recovery = () => {
         if (email.toLocaleLowerCase() === userState?.userName?.toLocaleLowerCase())
             setSucess(true)
 
-        else if (validateAccount({task: 'recovery', email: email}))
-            setSucess(true);
+        // else if (validateAccount({task: 'recovery', email: email}))
+        //     setSucess(true);
 
         else
             setError('Erro: Email não encontrado!');

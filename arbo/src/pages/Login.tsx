@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { validateLogin } from '../utils/apiCalls';
+// import { validateLogin } from '../utils/apiCalls';
 import { UserContext } from '../Context';
 import { UserState } from '../utils/types';
 import '../shared_styles/alignment.css'
@@ -22,8 +22,8 @@ const Login = () => {
         if (name === '' || password === '')
             setError('Erro: Há campos não preenchidos!');
 
-        const account : UserState = validateLogin(name, password);
-        performLogin(account);
+        // const account : UserState = validateLogin(name, password);
+        // performLogin(account);
     }
 
     // Actually performs the login
