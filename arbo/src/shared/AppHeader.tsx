@@ -1,9 +1,7 @@
-import { useState } from 'react';
-import { useContext } from 'react';
+import { useState, useContext } from 'react';
 import { UserContext } from '../Context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTree } from '@fortawesome/free-solid-svg-icons';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faTree, faBars } from '@fortawesome/free-solid-svg-icons';
 import { useWindowResize } from '../utils/customHooks'
 import { Link } from 'react-router-dom';
 import './AppHeader.css';
