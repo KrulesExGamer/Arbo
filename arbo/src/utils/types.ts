@@ -5,7 +5,6 @@ export interface user_db {
 }
 
 export interface arvore_db {
-    id : number;
     especie : string;
     nome_comum : string;
     estado : string;

@@ -4,11 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTree, faBars, faUser, faSignIn, faGrip, faBook, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { useWindowResize } from '../utils/customHooks'
 import { Link } from 'react-router-dom';
-import { user_session } from '../utils/types';
-import './AppHeader.css';
 import { NAME_SIZE_LIMIT } from '../utils/appConstants';
+import './AppHeader.css';
 
-const sideBar = (logado : boolean, nome : string = "Pedro Henrique Vilela") => {
+const sideBar = (logado : boolean, nome : string = "") => {
     if (nome.length > NAME_SIZE_LIMIT){
         nome = nome.substring(0, NAME_SIZE_LIMIT); // Limita o tamanho do nome
         nome = nome.trim(); // Remove espaços em branco do início e do fim
@@ -18,13 +17,13 @@ const sideBar = (logado : boolean, nome : string = "Pedro Henrique Vilela") => {
     return (
         <ul>
             <li>
-                {!logado && 
+                {logado && 
                     <Link to='user'>
                     <p className="li_fa"><FontAwesomeIcon icon={faUser} id="icon_user"/></p>
                     <p className="li_text">  {nome} </p></Link>
                 }
                 
-                {logado && 
+                {!logado && 
                     <Link to='login'>
                     <p className="li_fa"><FontAwesomeIcon icon={faSignIn} id="icon_login"/></p>
                     <p className="li_text"> Entre </p></Link>
@@ -61,22 +60,22 @@ const AppHeader = () => {
         let loginSessionString : string | null = localStorage.getItem('loginSession');
         
         if (setUserState !== undefined) {
-            if (loginSessionString !== null) {
-                setUserState(STD_USER_STATE);
-                let loginSession : user_session = JSON.parse(loginSessionString);
+            // if (loginSessionString !== null) {
+            //     setUserState(STD_USER_STATE);
+            //     let loginSession : user_session = JSON.parse(loginSessionString);
 
-                // Verifica se a sessão existe e se ela não expirou
-                if (loginSession.lastLogin == undefined || 
-                    loginSession.lastLogin - Math.floor(Date.now() / 1000) > TIME_SESSION_LIMIT)
-                    setUserState(STD_USER_STATE);
+            //     // Verifica se a sessão existe e se ela não expirou
+            //     if (loginSession.lastLogin == undefined || 
+            //         loginSession.lastLogin - Math.floor(Date.now() / 1000) > TIME_SESSION_LIMIT)
+            //         setUserState(STD_USER_STATE);
 
-                else {
-                    setUserState(loginSession);
-                }
-            }
+            //     else {
+            //         setUserState(loginSession);
+            //     }
+            // }
             
-            else
-                setUserState(STD_USER_STATE);
+            // else
+            //     setUserState(STD_USER_STATE);
         }
         
         
