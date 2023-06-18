@@ -1,11 +1,10 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { SidebarContext, UserContext } from '../Context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTree, faBars, faUser, faSignIn, faGrip, faBook, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { useWindowResize } from '../utils/customHooks'
 import { Link } from 'react-router-dom';
 import './AppHeader.css';
-import { subscribe } from 'diagnostics_channel';
 
 const NAME_SIZE_LIMIT = 15;
 
@@ -55,6 +54,17 @@ const sideBar = (logado : boolean, nome : string = "Pedro Henrique Vilela") => {
 }
 
 const AppHeader = () => {
+    useEffect(() => {
+        // Function to run when the component is mounted (page is loaded)
+        console.log('Page is loaded!');
+    
+        // Clean-up function (optional)
+        return () => {
+          // Clean-up code here (if needed)
+          console.log('Component is unmounted!');
+        };
+      }, []);
+
     const {userState, setUserState} = useContext(UserContext);
 
     const passUserState = () => {
@@ -70,7 +80,7 @@ const AppHeader = () => {
 
     return (
         <nav className='header-navbar'>
-            <input type="checkbox" id="check" onClick={() => {if (setSidebarState != undefined) setSidebarState(true)}}/>
+            <input type="checkbox" id="check" onClick={() => {if (setSidebarState !== undefined) setSidebarState(true)}}/>
             <label htmlFor='check' defaultChecked className="checkbtn">
                 <FontAwesomeIcon icon={faBars} />
             </label>
