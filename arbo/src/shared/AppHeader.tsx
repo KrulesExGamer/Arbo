@@ -50,7 +50,7 @@ const AppHeader = () => {
             <label htmlFor='check' defaultChecked className="checkbtn">
                 <FontAwesomeIcon icon={faBars} />
             </label>
-            <Link to='/'><label className="logo"><FontAwesomeIcon icon={faTree} /> Arbo <FontAwesomeIcon icon={faTree} /></label></Link>
+            <Link to='/about'><label className="logo"><FontAwesomeIcon icon={faTree} /> Arbo <FontAwesomeIcon icon={faTree} /></label></Link>
             
             {sideBarShow && sideBar()}
         </nav>
