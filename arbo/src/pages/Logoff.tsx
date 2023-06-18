@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { UserContext } from '../Context';
+// import { UserContext } from '../Context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSadTear } from '@fortawesome/free-solid-svg-icons';
 import SimpleHeader from '../components/SimpleHeader';
@@ -9,7 +9,7 @@ import '../shared_styles/unselectable.css'
 import './Logoff.css'
 
 const Logoff = () => {
-    const {userState, setUserState} = useContext(UserContext);
+    // const {userState, setUserState} = useContext(UserContext);
 
     const navigate = useNavigate();
 
@@ -17,15 +17,15 @@ const Logoff = () => {
     const username = searchParams.get('username');  
 
     // Performs the logoff
-    const performLogoff = () => {
-        if (setUserState !== undefined) {
-            let name = userState?.userName;
+    // const performLogoff = () => {
+    //     if (setUserState !== undefined) {
+    //         let name = userState?.userName;
             
-            setUserState({isLoggedIn: false});
+    //         setUserState({isLoggedIn: false});
 
-            navigate(`/logoff?username=${name}`);
-        }
-    }
+    //         navigate(`/logoff?username=${name}`);
+    //     }
+    // }
 
     const farewellMessage = () => {
         return (
@@ -36,13 +36,13 @@ const Logoff = () => {
         );
     }
 
-    const loadButton = () => {
-        if (userState?.isLoggedIn)
-            return (<button className='logoff_button unselectable' onClick={performLogoff}>Confirm logoff</button>);
+    // const loadButton = () => {
+    //     if (userState?.isLoggedIn)
+    //         return (<button className='logoff_button unselectable' onClick={performLogoff}>Confirm logoff</button>);
 
-        else if (username === null)
-            return (<Link to='/login'><p className='link'>You aren't logged in, why not do it now?</p></Link>)
-    }
+    //     else if (username === null)
+    //         return (<Link to='/login'><p className='link'>You aren't logged in, why not do it now?</p></Link>)
+    // }
 
     return (
         <div className='logoff-background'>
@@ -50,10 +50,10 @@ const Logoff = () => {
             <div className='conteiner-middle-center conteiner-logoff'>
                 <div className='item-middle-center item-logoff'>
                     <div className='logoff-container'>
-                        {userState?.isLoggedIn && <p className='logoff-message'>Already leaving, {userState.userName}? <FontAwesomeIcon icon={faSadTear} /> </p>}
+                        {/* {userState?.isLoggedIn && <p className='logoff-message'>Already leaving, {userState.userName}? <FontAwesomeIcon icon={faSadTear} /> </p>} */}
                         {username !== null && farewellMessage()}
                         
-                        {loadButton()}
+                        {/* {loadButton()} */}
                         
                         {username !== null && <Link to='/login'><p className='link'>Wanna login again?</p></Link>}
                     </div>

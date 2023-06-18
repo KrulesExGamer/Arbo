@@ -1,22 +1,34 @@
-import { useState, useContext } from 'react';
-import { UserContext } from '../Context';
+import { useContext, useEffect } from 'react';
+import { SidebarContext, UserContext } from '../Context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTree } from '@fortawesome/free-solid-svg-icons';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { faGrip } from '@fortawesome/free-solid-svg-icons';
-import { faBook } from '@fortawesome/free-solid-svg-icons';
-import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { faTree, faBars, faUser, faSignIn, faGrip, faBook, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { useWindowResize } from '../utils/customHooks'
 import { Link } from 'react-router-dom';
 import './AppHeader.css';
 
-const sideBar = () => {
+const NAME_SIZE_LIMIT = 15;
+
+const sideBar = (logado : boolean, nome : string = "Pedro Henrique Vilela") => {
+    if (nome.length > NAME_SIZE_LIMIT){
+        nome = nome.substring(0, NAME_SIZE_LIMIT); // Limita o tamanho do nome
+        nome = nome.trim(); // Remove espaços em branco do início e do fim
+        nome += '...'; // Indica que há mais texto
+    }
+
     return (
         <ul>
-            <li><Link to='user'>
-                <p className="li_fa"><FontAwesomeIcon icon={faUser} id="icon_user"/></p>
-                <p className="li_text">  Nome Completo</p></Link>
+            <li>
+                {!logado && 
+                    <Link to='user'>
+                    <p className="li_fa"><FontAwesomeIcon icon={faUser} id="icon_user"/></p>
+                    <p className="li_text">  {nome} </p></Link>
+                }
+                
+                {logado && 
+                    <Link to='login'>
+                    <p className="li_fa"><FontAwesomeIcon icon={faSignIn} id="icon_login"/></p>
+                    <p className="li_text"> Entre </p></Link>
+                }
             </li>
             <li><Link to='about'>
                 <p className="li_fa"><FontAwesomeIcon icon={faGrip} id="icon_dash"/></p>
@@ -30,28 +42,51 @@ const sideBar = () => {
                 <p className="li_fa"><FontAwesomeIcon icon={faTree} id="icon_tree"/></p>
                 <p className="li_text">  Cadastrar Árvore</p></Link>
             </li>
-            <li><Link to='about'>
-                <p className="li_fa"><FontAwesomeIcon icon={faArrowRightFromBracket} id="icon_leave"/></p>
-                <p className="li_text">  Sair</p></Link>
-            </li>
+            {logado && 
+                <li>
+                    <Link to='logoff'>
+                    <p className="li_fa"><FontAwesomeIcon icon={faArrowRightFromBracket} id="icon_leave"/></p>
+                    <p className="li_text">  Sair</p></Link>
+                </li>
+            }
         </ul>
     );
 }
 
 const AppHeader = () => {
+    useEffect(() => {
+        // Function to run when the component is mounted (page is loaded)
+        console.log('Page is loaded!');
+    
+        // Clean-up function (optional)
+        return () => {
+          // Clean-up code here (if needed)
+          console.log('Component is unmounted!');
+        };
+      }, []);
+
+    const {userState, setUserState} = useContext(UserContext);
+
+    const passUserState = () => {
+        if (userState?.logado !== undefined)
+            return userState?.logado;
+    
+        return false;
+    }
+    
     const { width } = useWindowResize();
 
-    const [sideBarShow, toggleSideBar] = useState(false);
+    const {sidebarState, setSidebarState} = useContext(SidebarContext);
 
     return (
         <nav className='header-navbar'>
-            <input type="checkbox" id="check" onClick={() => toggleSideBar(true)}/>
+            <input type="checkbox" id="check" onClick={() => {if (setSidebarState !== undefined) setSidebarState(true)}}/>
             <label htmlFor='check' defaultChecked className="checkbtn">
                 <FontAwesomeIcon icon={faBars} />
             </label>
             <Link to='/'><label className="logo"><FontAwesomeIcon icon={faTree} /> Arbo <FontAwesomeIcon icon={faTree} /></label></Link>
             
-            {sideBarShow && sideBar()}
+            {sidebarState && sideBar(passUserState(), userState?.nome)}
         </nav>
     );
 };

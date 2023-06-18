@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useContext } from 'react';
-import { UserContext } from '../Context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTree } from '@fortawesome/free-solid-svg-icons';
 import './Cadastrar_Arvore.css';
