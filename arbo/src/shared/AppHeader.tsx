@@ -27,7 +27,7 @@ const sideBar = () => {
                 <p className="li_fa"><FontAwesomeIcon icon={faBook} id="icon_inventory"/></p>
                 <p className="li_text">  Inventório Arbóreo</p></Link>
             </li>
-            <li><Link to='about'>
+            <li><Link to='cadastro_arboreo'>
                 <p className="li_fa"><FontAwesomeIcon icon={faTree} id="icon_tree"/></p>
                 <p className="li_text">  Cadastrar Árvore</p></Link>
             </li>

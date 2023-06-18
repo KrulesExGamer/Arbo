@@ -1,0 +1,25 @@
+#cadastro_arboreo{
+    display: flex;
+    flex-flow: column;
+    padding: 10px 20%;
+    background-color: #9f9;
+}
+
+#cadastro_arboreo > div {
+    background-color: #494;
+    width: 100%;
+    font-size:  20px;
+    font-weight: bold;
+    color:black;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+#cadastro_arboreo > div > input{
+    background-color: #fff;
+    font-size:  20px;
+    font-weight: bold;
+    color:black;
+    margin: 10px;
+    border-radius: 5px;
+}
