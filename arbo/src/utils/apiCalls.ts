@@ -8,8 +8,8 @@ export function recoverSession() {
     if (loginSessionString !== null) {
         let loginSession : user_session = JSON.parse(loginSessionString);
 
-        // Verifica se a sessão existe e se ela não expirou
-        if (loginSession.lastLogin == undefined || 
+        // Verifica se a sessão não existe ou se ela expirou
+        if (loginSession.lastLogin === undefined || 
             loginSession.lastLogin - Math.floor(Date.now() / 1000) > TIME_SESSION_LIMIT)
             return null;
 

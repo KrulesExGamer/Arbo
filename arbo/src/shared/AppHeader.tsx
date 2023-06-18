@@ -5,7 +5,9 @@ import { faTree, faBars, faUser, faSignIn, faGrip, faBook, faArrowRightFromBrack
 import { useWindowResize } from '../utils/customHooks'
 import { Link } from 'react-router-dom';
 import { NAME_SIZE_LIMIT } from '../utils/appConstants';
+import { recoverSession } from '../utils/apiCalls';
 import './AppHeader.css';
+import { user_session } from '../utils/types';
 
 const sideBar = (logado : boolean, nome : string = "") => {
     if (nome.length > NAME_SIZE_LIMIT){
@@ -57,31 +59,18 @@ const AppHeader = () => {
 
     useEffect(() => {
         // Function to run when the component is mounted (page is loaded)
-        let loginSessionString : string | null = localStorage.getItem('loginSession');
-        
         if (setUserState !== undefined) {
-            // if (loginSessionString !== null) {
-            //     setUserState(STD_USER_STATE);
-            //     let loginSession : user_session = JSON.parse(loginSessionString);
+            let session : user_session | null = recoverSession();
 
-            //     // Verifica se a sessão existe e se ela não expirou
-            //     if (loginSession.lastLogin == undefined || 
-            //         loginSession.lastLogin - Math.floor(Date.now() / 1000) > TIME_SESSION_LIMIT)
-            //         setUserState(STD_USER_STATE);
-
-            //     else {
-            //         setUserState(loginSession);
-            //     }
-            // }
+            if (session !== null) {
+                session.lastLogin = Date.now() / 1000; // Atualiza a data de expiração da sessão
+                setUserState(session); 
+            }           
             
-            // else
-            //     setUserState(STD_USER_STATE);
+            else
+                setUserState(STD_USER_STATE);
         }
         
-        
-        
-        console.log(loginSessionString);
-
         // Clean-up function (optional)
         return () => {
           // Clean-up code here (if needed)
