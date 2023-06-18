@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
+import { UserContext, STD_USER_STATE, SidebarContext } from './Context';
 import Layout from './Layout';
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -8,20 +8,23 @@ import Signup from './pages/Signup';
 import Logoff from './pages/Logoff';
 import Recovery from './pages/Recovery';
 import About from './pages/About';
-import { STD_USER_STATE, UserContext } from './Context';
 import TestPage from './pages/TestPage';
 import NotFound from './pages/NotFound';
 import Cadastro_Arboreo from './pages/Cadastrar_Arvore';
 
-
 const App = () => {
-  let [appUserState, setAppUserState] = useState(STD_USER_STATE);
+  let [appUserState, setAppUserState] = useState(STD_USER_STATE)
+  let [appSidebarState, setAppSidebarState] = useState(false);
 
   return (
     <BrowserRouter>
-      <UserContext.Provider value={{ // Provides user context to all components
+      <UserContext.Provider value={{
         userState: appUserState,
         setUserState: setAppUserState,
+      }}>
+      <SidebarContext.Provider value={{
+        sidebarState: appSidebarState,
+        setSidebarState: setAppSidebarState,
       }}>
         <Routes> {/* Subpages */}
           <Route path='/' element={<Layout />}>
@@ -36,6 +39,7 @@ const App = () => {
             <Route path='cadastro_arboreo' element={<Cadastro_Arboreo />}></Route>
           </Route>
         </Routes>
+      </SidebarContext.Provider>
       </UserContext.Provider>
     </BrowserRouter>
   );

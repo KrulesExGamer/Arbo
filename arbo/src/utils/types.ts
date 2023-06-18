@@ -1,22 +1,23 @@
-export interface user {
+export interface user_db {
     email : string;
     nusp : string;
     password : string;
 }
 
-export interface arvore {
+export interface arvore_db {
     id : number;
-    especia : string;
+    especie : string;
     nome_comum : string;
     estado : string;
     naturalidade : string; // Exótico ou Nativo
     altura : number;
     diametro_peito : number;
     categoria_ameaca : number;
-    coordenada : [number, number];
+    coordenadas : [number, number];
+    referencia : string;
 }
 
-export interface riscos {
+export interface riscos_db {
     estado_casca : string;
     presenca_coroa : string;
     risco_geologico : string;
@@ -26,8 +27,15 @@ export interface riscos {
     outros : [];
 }
 
-export interface profissional {
+export interface profissional_db {
     carteira_profissional : string;
     nome : string;
     profissao : string;
+}
+
+export interface user_session {
+    logado : boolean;
+    nome? : string;
+    email? : string;
+    funcionario? : boolean;
 }

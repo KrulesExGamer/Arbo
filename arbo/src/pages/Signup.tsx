@@ -2,7 +2,7 @@ import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 // import { validateAccount } from '../utils/apiCalls';
-import { UserContext } from '../Context';
+// import { UserContext } from '../Context';
 import '../shared_styles/alignment.css';
 import '../shared_styles/unselectable.css';
 import './Signup.css';
@@ -15,7 +15,7 @@ const Signup = () => {
 
     const navigate = useNavigate();
 
-    const {userState, setUserState} = useContext(UserContext);
+    // const {userState, setUserState} = useContext(UserContext);
 
     // Garantees that both the name and email are not already registered 
     const checkSignup = () => {
@@ -34,14 +34,14 @@ const Signup = () => {
     }
 
     // Load the data into memory and starts user session
-    const startSession = () => {
-        if (checkSignup()) {
-            if (setUserState !== undefined)
-                setUserState({isLoggedIn: true, userName: name, email: email, isAdmin: false})
+    // const startSession = () => {
+    //     if (checkSignup()) {
+    //         if (setUserState !== undefined)
+    //             setUserState({isLoggedIn: true, userName: name, email: email, isAdmin: false})
                 
-            navigate('/');
-        }
-    }
+    //         navigate('/');
+    //     }
+    // }
 
     const signupForm = () => {
         return (
@@ -70,20 +70,20 @@ const Signup = () => {
                         placeholder="Password" 
                         id="password" />
                 </p>
-                <p>
+                {/* <p>
                     <button className='login_button unselectable' onClick={startSession}>Sign Up</button>
-                </p>
+                </p> */}
             </>
         );
     }
 
-    const loadForm = () => {
-        if (!userState?.isLoggedIn)
-            return signupForm();
+    // const loadForm = () => {
+    //     if (!userState?.isLoggedIn)
+    //         return signupForm();
 
-        else 
-            return (<p className='signup-message'>You're already logged in, {userState.userName}!</p>)
-    }
+    //     else 
+    //         return (<p className='signup-message'>You're already logged in, {userState.userName}!</p>)
+    // }
 
     return (
         <div className='signup-background'>
@@ -92,7 +92,7 @@ const Signup = () => {
                     <div className='login-container'>
                         {errorText != "" && <p className='error'>{`${errorText}`}</p>}
                         
-                        {loadForm()}
+                        {/* {loadForm()} */}
                         
                         <Link to='/login'><p className='link'>Already have an account?</p></Link>
                     </div>
