@@ -5,14 +5,14 @@ import SimpleHeader from '../components/SimpleHeader';
 import '../shared_styles/alignment.css';
 import '../shared_styles/unselectable.css';
 import './Recovery.css';
-import { UserContext } from '../Context';
+// import { UserContext } from '../Context';
 
 const Recovery = () => {
     const [email, setEmail] = useState('');
     const [errorText, setError] = useState('');
     const [success, setSucess] = useState(false);
 
-    const {userState, setUserState} = useContext(UserContext);
+    // const {userState, setUserState} = useContext(UserContext);
 
     // Checks if the email provided is valid and exists in our database
     const checkRecovery = () => {
@@ -26,14 +26,14 @@ const Recovery = () => {
         else 
             setError('');
 
-        if (email.toLocaleLowerCase() === userState?.userName?.toLocaleLowerCase())
-            setSucess(true)
+        // if (email.toLocaleLowerCase() === userState?.userName?.toLocaleLowerCase())
+        //     setSucess(true)
 
         // else if (validateAccount({task: 'recovery', email: email}))
         //     setSucess(true);
 
-        else
-            setError('Erro: Email não encontrado!');
+        // else
+        //     setError('Erro: Email não encontrado!');
     }
 
     const recoveryForm = () => {

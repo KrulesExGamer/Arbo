@@ -2,8 +2,8 @@ import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 // import { validateLogin } from '../utils/apiCalls';
-import { UserContext } from '../Context';
-import { UserState } from '../utils/types';
+import { SidebarContext } from '../Context';
+// import { UserState } from '../utils/types';
 import '../shared_styles/alignment.css'
 import '../shared_styles/unselectable.css'
 import './Login.css'
@@ -15,7 +15,7 @@ const Login = () => {
 
     const navigate = useNavigate();
 
-    const {userState, setUserState} = useContext(UserContext)
+    // const {userState, setUserState} = useContext(SidebarContext)
 
     // Verifies if the account is valid
     const checkLogin = () => {
@@ -27,17 +27,17 @@ const Login = () => {
     }
 
     // Actually performs the login
-    const performLogin = (account : UserState) => {
-        if (account.isLoggedIn === false) {
-            setError('Erro: Usuário e/ou senha inválidos!');
-            return;
-        }
+    // const performLogin = (account : UserState) => {
+    //     if (account.isLoggedIn === false) {
+    //         setError('Erro: Usuário e/ou senha inválidos!');
+    //         return;
+    //     }
 
-        if (setUserState !== undefined)
-            setUserState(account);
+    //     if (setUserState !== undefined)
+    //         setUserState(account);
 
-        navigate('/');
-    }
+    //     navigate('/');
+    // }
     
     const loginForm = () => {
         return (
@@ -64,13 +64,13 @@ const Login = () => {
         );
     }
 
-    const loadForm = () => {
-        if (!userState?.isLoggedIn)
-            return loginForm();
+    // const loadForm = () => {
+    //     if (!userState?.isLoggedIn)
+    //         return loginForm();
 
-        else 
-            return (<p className='login-message'>You're already logged in, {userState.userName}!</p>)
-    }
+    //     else 
+    //         return (<p className='login-message'>You're already logged in, {userState.userName}!</p>)
+    // }
 
     return (
         <div className='login-background'>
@@ -79,7 +79,7 @@ const Login = () => {
                     <div className='login-container'>
                         {errorText !== '' && <p className='error'>{`${errorText}`}</p>}
                         
-                        {loadForm()}
+                        {/* {loadForm()} */}
                         
                         <Link to='/signup'><p className='link'>Are you new here?</p></Link>
                         <Link to='/recovery'><p className='link'>Forgot your password?</p></Link>
