@@ -1,5 +1,7 @@
-.AppFooter {
+.AppFooter label {
+    /* background-color: ; */
     color: black;
+    font-weight: bolder;
     text-align: left;
     padding: 30px 10px 10px 10px;
     font-size: 0.8em;
