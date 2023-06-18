@@ -11,6 +11,7 @@ import About from './pages/About';
 import { STD_USER_STATE, UserContext } from './Context';
 import TestPage from './pages/TestPage';
 import NotFound from './pages/NotFound';
+import Cadastro_Arboreo from './pages/Cadastrar_Arvore';
 
 
 const App = () => {
@@ -32,6 +33,7 @@ const App = () => {
             <Route path='about' element={<About />}></Route>
             <Route path='not-found' element={<NotFound />}></Route>
             <Route path='test' element={<TestPage />}></Route>
+            <Route path='cadastro_arboreo' element={<Cadastro_Arboreo />}></Route>
           </Route>
         </Routes>
       </UserContext.Provider>
