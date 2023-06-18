@@ -46,13 +46,14 @@
 	margin:0px 5px;
 }
 
-a:active, a:hover{
+.header-navbar a:active, .header-navbar a:hover{
 	background-color: #171;
 	border-radius: 10px;
 	transition: 0.5s;
 	color:#3d1;
 }
-li:hover{
+
+.header-navbar li:hover{
 	border-color:#3d1;
 	background-color: #3d1;
 	transition: 0.5s;

@@ -1,14 +1,15 @@
 import { useContext, useEffect } from 'react';
-import { SidebarContext, UserContext } from '../Context';
+import { SidebarContext, UserContext, STD_USER_STATE } from '../Context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTree, faBars, faUser, faSignIn, faGrip, faBook, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { useWindowResize } from '../utils/customHooks'
 import { Link } from 'react-router-dom';
+import { NAME_SIZE_LIMIT } from '../utils/appConstants';
+import { recoverSession } from '../utils/apiCalls';
 import './AppHeader.css';
+import { user_session } from '../utils/types';
 
-const NAME_SIZE_LIMIT = 15;
-
-const sideBar = (logado : boolean, nome : string = "Pedro Henrique Vilela") => {
+const sideBar = (logado : boolean, nome : string = "") => {
     if (nome.length > NAME_SIZE_LIMIT){
         nome = nome.substring(0, NAME_SIZE_LIMIT); // Limita o tamanho do nome
         nome = nome.trim(); // Remove espaços em branco do início e do fim
@@ -18,13 +19,13 @@ const sideBar = (logado : boolean, nome : string = "Pedro Henrique Vilela") => {
     return (
         <ul id="nav_bar">
             <li>
-                {!logado && 
+                {logado && 
                     <Link to='user'>
                     <p className="li_fa"><FontAwesomeIcon icon={faUser} id="icon_user"/></p>
                     <p className="li_text">  {nome} </p></Link>
                 }
                 
-                {logado && 
+                {!logado && 
                     <Link to='login'>
                     <p className="li_fa"><FontAwesomeIcon icon={faSignIn} id="icon_login"/></p>
                     <p className="li_text"> Entre </p></Link>
@@ -54,10 +55,22 @@ const sideBar = (logado : boolean, nome : string = "Pedro Henrique Vilela") => {
 }
 
 const AppHeader = () => {
+    const {userState, setUserState} = useContext(UserContext);
+
     useEffect(() => {
         // Function to run when the component is mounted (page is loaded)
-        console.log('Page is loaded!');
-    
+        if (setUserState !== undefined) {
+            let session : user_session | null = recoverSession();
+
+            if (session !== null) {
+                session.lastLogin = Date.now() / 1000; // Atualiza a data de expiração da sessão
+                setUserState(session); 
+            }           
+            
+            else
+                setUserState(STD_USER_STATE);
+        }
+        
         // Clean-up function (optional)
         return () => {
           // Clean-up code here (if needed)
@@ -65,7 +78,6 @@ const AppHeader = () => {
         };
       }, []);
 
-    const {userState, setUserState} = useContext(UserContext);
 
     const passUserState = () => {
         if (userState?.logado !== undefined)

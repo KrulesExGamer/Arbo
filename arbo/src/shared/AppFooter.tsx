@@ -1,11 +1,12 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTree } from '@fortawesome/free-solid-svg-icons';
 import './AppFooter.css';
-import bottle from './../img/bottle-removebg-preview.png';
 
 const AppFooter = () => {
     return (
         <footer className='AppFooter'>
-            <p>Boiler Store Inc.</p>
+            <label><FontAwesomeIcon icon={faTree} /> Arbo Project <FontAwesomeIcon icon={faTree} /></label>
         </footer>
     );
 };

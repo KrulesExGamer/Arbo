@@ -3,9 +3,6 @@ import './Home.css'
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 
-import Topics from '../shared/Topics';
-
-
 const Home = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const location = useLocation();
