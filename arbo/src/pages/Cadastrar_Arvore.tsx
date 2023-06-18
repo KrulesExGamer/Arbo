@@ -6,10 +6,10 @@ import './Cadastrar_Arvore.css';
 
 const Cadastro_Arboreo = () => {
     return <div id="cadastro_arboreo">
-        <div>Nome: <input type="text" placeholder='Nome da Árvore'></input></div>
-        <div>Localização <input type="text" placeholder='Localização'></input></div>
-        <div>Descrição <input type="text" placeholder='Descrição'></input></div>
-        <div>Situação de Risco <input type="text" placeholder='Situação de risco'></input></div>
+        <div><p>Nome:</p> <input type="text" placeholder='Nome da Árvore'></input></div>
+        <div><p>Localização:</p> <input type="text" placeholder='Localização'></input></div>
+        <div><p>Descrição:</p> <input type="text" placeholder='Descrição'></input></div>
+        <div><p>Situação de Risco:</p> <textarea  placeholder='Situação de risco' className="long_text_input"/></div>
     </div>
 }
 
