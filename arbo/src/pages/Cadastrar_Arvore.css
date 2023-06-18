@@ -3,6 +3,7 @@
     flex-flow: column;
     padding: 10px 20%;
     background-color: #9f9;
+    height:120%;
 }
 
 #cadastro_arboreo > div {
@@ -11,15 +12,49 @@
     font-size:  20px;
     font-weight: bold;
     color:black;
-    margin: 10px;
+    margin: 10px 0px;
     border-radius: 5px;
 }
 
 #cadastro_arboreo > div > input{
+    font-family: inherit;
     background-color: #fff;
+    font-size:  14px;
+    font-weight: bold;
+    color:black;
+    margin: 0px 0px 10px 0px;
+    padding: 5px;
+    border-radius: 5px;
+    width: 80%;
+    text-align: start;
+}
+
+#cadastro_arboreo > div > textarea{
+    font-family: inherit;
+    background-color: #fff;
+    font-size:  14px;
+    font-weight: bold;
+    color:black;
+    margin: 0px 0px 10px 0px;
+    padding: 5px;
+    border-radius: 5px;
+    width: 80%;
+    text-align: start;
+}
+
+#cadastro_arboreo > div > p{
     font-size:  20px;
     font-weight: bold;
     color:black;
-    margin: 10px;
-    border-radius: 5px;
+    margin: 5px 0px 0px 0px;
+}
+
+#check:checked ~ #cadastro_arboreo{
+	width: calc(100% - 386px);
+    left:386px;
+}
+
+.long_text_input{
+    height: 160px;
+    overflow-wrap: break-word;
 }

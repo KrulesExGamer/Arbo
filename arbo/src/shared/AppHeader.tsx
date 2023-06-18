@@ -14,7 +14,7 @@ import './AppHeader.css';
 
 const sideBar = () => {
     return (
-        <ul>
+        <ul id="nav_bar">
             <li><Link to='user'>
                 <p className="li_fa"><FontAwesomeIcon icon={faUser} id="icon_user"/></p>
                 <p className="li_text">  Nome Completo</p></Link>
