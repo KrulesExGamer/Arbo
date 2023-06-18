@@ -17,7 +17,7 @@ const sideBar = (logado : boolean, nome : string = "") => {
     }
 
     return (
-        <ul>
+        <ul id="nav_bar">
             <li>
                 {logado && 
                     <Link to='user'>
@@ -96,7 +96,7 @@ const AppHeader = () => {
             <label htmlFor='check' defaultChecked className="checkbtn">
                 <FontAwesomeIcon icon={faBars} />
             </label>
-            <Link to='/'><label className="logo"><FontAwesomeIcon icon={faTree} /> Arbo <FontAwesomeIcon icon={faTree} /></label></Link>
+            <Link to='/about'><label className="logo"><FontAwesomeIcon icon={faTree} /> Arbo <FontAwesomeIcon icon={faTree} /></label></Link>
             
             {sidebarState && sideBar(passUserState(), userState?.nome)}
         </nav>

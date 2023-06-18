@@ -11,6 +11,7 @@ import About from './pages/About';
 import TestPage from './pages/TestPage';
 import NotFound from './pages/NotFound';
 import Cadastro_Arboreo from './pages/Cadastrar_Arvore';
+import UserProfile from './pages/userPage';
 
 const App = () => {
   let [appUserState, setAppUserState] = useState(STD_USER_STATE)
@@ -37,6 +38,7 @@ const App = () => {
             <Route path='not-found' element={<NotFound />}></Route>
             <Route path='test' element={<TestPage />}></Route>
             <Route path='cadastro_arboreo' element={<Cadastro_Arboreo />}></Route>
+            <Route path='user' element={<UserProfile />}></Route>
           </Route>
         </Routes>
       </SidebarContext.Provider>
