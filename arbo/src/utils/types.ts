@@ -38,4 +38,5 @@ export interface user_session {
     nome? : string;
     email? : string;
     funcionario? : boolean;
+    lastLogin?: number;
 }

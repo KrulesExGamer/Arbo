@@ -1,12 +1,12 @@
 import { useContext, useEffect } from 'react';
-import { SidebarContext, UserContext } from '../Context';
+import { SidebarContext, UserContext, STD_USER_STATE } from '../Context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTree, faBars, faUser, faSignIn, faGrip, faBook, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { useWindowResize } from '../utils/customHooks'
 import { Link } from 'react-router-dom';
+import { user_session } from '../utils/types';
 import './AppHeader.css';
-
-const NAME_SIZE_LIMIT = 15;
+import { NAME_SIZE_LIMIT } from '../utils/appConstants';
 
 const sideBar = (logado : boolean, nome : string = "Pedro Henrique Vilela") => {
     if (nome.length > NAME_SIZE_LIMIT){
@@ -54,10 +54,35 @@ const sideBar = (logado : boolean, nome : string = "Pedro Henrique Vilela") => {
 }
 
 const AppHeader = () => {
+    const {userState, setUserState} = useContext(UserContext);
+
     useEffect(() => {
         // Function to run when the component is mounted (page is loaded)
-        console.log('Page is loaded!');
-    
+        let loginSessionString : string | null = localStorage.getItem('loginSession');
+        
+        if (setUserState !== undefined) {
+            if (loginSessionString !== null) {
+                setUserState(STD_USER_STATE);
+                let loginSession : user_session = JSON.parse(loginSessionString);
+
+                // Verifica se a sessão existe e se ela não expirou
+                if (loginSession.lastLogin == undefined || 
+                    loginSession.lastLogin - Math.floor(Date.now() / 1000) > TIME_SESSION_LIMIT)
+                    setUserState(STD_USER_STATE);
+
+                else {
+                    setUserState(loginSession);
+                }
+            }
+            
+            else
+                setUserState(STD_USER_STATE);
+        }
+        
+        
+        
+        console.log(loginSessionString);
+
         // Clean-up function (optional)
         return () => {
           // Clean-up code here (if needed)
@@ -65,7 +90,6 @@ const AppHeader = () => {
         };
       }, []);
 
-    const {userState, setUserState} = useContext(UserContext);
 
     const passUserState = () => {
         if (userState?.logado !== undefined)
