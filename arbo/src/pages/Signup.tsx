@@ -1,100 +1,98 @@
 import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-// import { validateAccount } from '../utils/apiCalls';
-// import { UserContext } from '../Context';
+import { UserContext } from '../Context';
 import '../shared_styles/alignment.css';
 import '../shared_styles/unselectable.css';
 import './Signup.css';
+import { user_session } from '../utils/types';
+import { performSignup } from '../utils/apiCalls';
+import { EMAIL_PATTERN } from '../utils/appConstants';
 
 const Signup = () => {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [errorText, setError] = useState("");
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [errorText, setError] = useState('');
 
     const navigate = useNavigate();
 
-    // const {userState, setUserState} = useContext(UserContext);
+    const {userState, setUserState} = useContext(UserContext);
 
     // Garantees that both the name and email are not already registered 
     const checkSignup = () => {
-        if (name === "" || email === "" || password === "") {
-            setError("Erro: Há campos não preenchidos!");
-            return false;
-        }
-        
-        // if (validateAccount({task: "signup", name: name, email: email}))
-        //     return true;
+        if (name === '' || email === '' || password === '') 
+            setError('Erro: Há campos não preenchidos!');
+
+        else if (!EMAIL_PATTERN.test(email))
+            setError('Erro: Email inválido!')
 
         else {
-            setError("Erro: Usuário e/ou email já foram cadastrados!");
-            return false;
+            let account : user_session = performSignup(name, email, password);
+        
+            if (setUserState != undefined && account.logado)
+            {
+                setUserState(account);
+                navigate('/');
+            }
+
+
+            else
+                setError('Erro: Usuário e/ou email já foram cadastrados!');
         }
     }
-
-    // Load the data into memory and starts user session
-    // const startSession = () => {
-    //     if (checkSignup()) {
-    //         if (setUserState !== undefined)
-    //             setUserState({isLoggedIn: true, userName: name, email: email, isAdmin: false})
-                
-    //         navigate('/');
-    //     }
-    // }
 
     const signupForm = () => {
         return (
             <>
                 <p>
                     <input className='login_input'
-                        style={{marginRight: "15%"}}
                         onChange={(event)=>setName(event.target.value)} 
-                        type="text"
+                        type='text'
                         placeholder='Username...'
-                        id="name" />
+                        id='name' />
                 </p>
                 <p>
                 <input className='login_input'
-                        style={{marginLeft: "15%"}}
                         onChange={(event)=>setEmail(event.target.value)} 
-                        type="text"
+                        type='text'
                         placeholder='Email...'
-                        id="name" />
+                        id='name' />
                 </p>
                 <p>
                     <input className='login_input'
-                        style={{marginRight: "15%"}}
                         onChange={(event)=>setPassword(event.target.value)} 
-                        type="password" 
-                        placeholder="Password" 
-                        id="password" />
+                        type='password' 
+                        placeholder='Password' 
+                        id='password' />
                 </p>
-                {/* <p>
-                    <button className='login_button unselectable' onClick={startSession}>Sign Up</button>
-                </p> */}
+                <p>
+                    <button className='login_button unselectable' onClick={checkSignup}>Sign Up</button>
+                </p>
             </>
         );
     }
 
-    // const loadForm = () => {
-    //     if (!userState?.isLoggedIn)
-    //         return signupForm();
+    const loadForm = () => {
+        if (!userState?.logado)
+            return signupForm();
 
-    //     else 
-    //         return (<p className='signup-message'>You're already logged in, {userState.userName}!</p>)
-    // }
+        else 
+            return (<p className='signup-message'>Você já está logado, {userState.nome}!</p>)
+    }
 
     return (
         <div className='signup-background'>
             <div className='conteiner-middle-center'>
-                <div className='item-middle-center item-signup'>
+                <div className='item-signup'>
                     <div className='login-container'>
-                        {errorText != "" && <p className='error'>{`${errorText}`}</p>}
+                        {errorText != '' && <p className='error'>{`${errorText}`}</p>}
                         
-                        {/* {loadForm()} */}
+                        {loadForm()}
                         
-                        <Link to='/login'><p className='link'>Already have an account?</p></Link>
+                        {!userState?.logado && <Link to='/login'><p className='link'>Já tem uma conta?</p></Link>}
+
+                        {userState?.logado && <Link to='/logoff'><p className='link'>Deseja sair?</p></Link>}
                     </div>
                 </div>
             </div>

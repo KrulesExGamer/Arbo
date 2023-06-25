@@ -10,3 +10,5 @@ export const ERROR_MSG_400_INVALID_PATH = 'ERROR (400): BAD REQUEST. THE RESOURC
 
 export const NAME_SIZE_LIMIT = 15;
 export const TIME_SESSION_LIMIT = 60; // 60 segundos
+
+export const EMAIL_PATTERN = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/

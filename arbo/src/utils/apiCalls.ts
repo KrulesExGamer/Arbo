@@ -20,3 +20,32 @@ export function recoverSession() {
     else
         return null;
 }
+
+
+export function performLogin(name : string, password : string) {
+    if ((name.toLowerCase() === 'pedro' || name === 'pedro@mail.com') && password === '123')
+    {
+        let conta : user_session = {logado: true, nome: 'Pedro', email: 'pedro@mail.com', lastLogin: Date.now() / 1000}
+        return conta;
+    }
+
+    else 
+    {
+        let conta : user_session = {logado: false}
+        return conta;
+    }
+}
+
+export function performSignup(name : string, email : string, password : string) {
+    if (name.toLowerCase() !== 'pedro' && email.toLowerCase() !== 'pedro@mail.com')
+    {
+        let conta : user_session = {logado: true, nome: name, email: email, lastLogin: Date.now() / 1000};
+        return conta;
+    }
+
+    else 
+    {
+        let conta : user_session = {logado: false};
+        return conta;
+    }
+}

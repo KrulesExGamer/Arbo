@@ -48,11 +48,12 @@
     margin-bottom : 5%;
     text-align: center;
     width: 100%;
+    color: black;
 }
 
 .login-container p {
     padding: 3px;
-}
+} 
 
 .login-message {
     font-weight: bolder;
@@ -66,17 +67,4 @@
     margin-left: 20%;
     margin-right: 20%;
     background-color: #FBB;
-}
-
-.link {
-    text-decoration: underline;
-    color: blue;
-    font-size: 1.2em;
-}
-
-.welcome {
-    text-align: left;
-    margin-left: 10%;
-    font-size: 1.1em;
-    color: blue;
 }
