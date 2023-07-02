@@ -12,6 +12,7 @@ import TestPage from './pages/TestPage';
 import NotFound from './pages/NotFound';
 import Cadastro_Arboreo from './pages/Cadastrar_Arvore';
 import UserProfile from './pages/userPage';
+import Qr from './pages/qrTest';
 
 const App = () => {
   let [appUserState, setAppUserState] = useState(STD_USER_STATE)
@@ -39,6 +40,7 @@ const App = () => {
             <Route path='test' element={<TestPage />}></Route>
             <Route path='cadastro_arboreo' element={<Cadastro_Arboreo />}></Route>
             <Route path='user' element={<UserProfile />}></Route>
+            <Route path='qr' element={<Qr />}></Route>
           </Route>
         </Routes>
       </SidebarContext.Provider>

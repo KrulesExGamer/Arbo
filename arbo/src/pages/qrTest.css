@@ -1,0 +1,17 @@
+*:not(head) {
+    color: #000;
+    background-color: #ddd;
+    border: 0.1px solid #333;
+    padding: 4px;
+    margin: 4px;
+    border-radius: 5px; 
+    text-align: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: space-around;
+}
+
+*:not(head):hover{
+    background-color: #ccc;
+}

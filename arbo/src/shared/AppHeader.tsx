@@ -43,6 +43,10 @@ const sideBar = (logado : boolean, nome : string = "") => {
                 <p className="li_fa"><FontAwesomeIcon icon={faTree} id="icon_tree"/></p>
                 <p className="li_text">  Cadastrar Árvore</p></Link>
             </li>
+            <li><Link to='qr'>
+                <p className="li_fa"><FontAwesomeIcon icon={faTree} id="icon_tree"/></p>
+                <p className="li_text">  QrCode Test</p></Link>
+            </li>
             {logado && 
                 <li>
                     <Link to='logoff'>
