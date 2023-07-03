@@ -1,0 +1,23 @@
+/********************************************
+                Footer
+*********************************************/
+#componentFooter {
+  margin-top: auto;
+  padding-top: 20px;
+  width: 100%;
+  background-color: var(--lightCream);
+}
+
+.footerBox {
+  width: 200px;
+  font-size: 0.9em;
+}
+
+.footerBox p {
+  margin: 0;
+  padding: 0;
+}
+
+.footerCopyright {
+  background-color: #AC7C72;
+}

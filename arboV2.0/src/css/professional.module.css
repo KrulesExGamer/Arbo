@@ -1,0 +1,36 @@
+.pageProfessional{
+    padding: 20px;
+}
+
+.containerRegisterProfessionals {
+    margin: 0 auto;
+    margin-bottom: 30px;
+    text-align: center;
+    width: 80%;
+    
+}
+
+.containerDisplayProfessionals {
+    margin: 0 auto;
+    margin-top: 20px;
+    max-width: 800px;
+}
+
+.containerDisplayList{
+    margin:20px;
+}
+
+.container-user{
+    margin-top: 40px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    max-width: 800px;
+    padding: 10px;
+    box-shadow: 1px 1px 20px rgb(194, 194, 194);
+}
+
+/* células do container (células da tabela)*/
+.container-celula{
+    margin: 1px 0;
+    padding: 2px 0;
+}

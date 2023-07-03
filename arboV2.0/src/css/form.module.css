@@ -1,0 +1,31 @@
+.formTextArea{
+    height: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.formInputText{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.formSelectBox{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.submit{
+    margin: 10px;
+    color: black;
+    font-weight: 500;
+    border: 0px;
+    border-radius: 10px;
+    padding: 5px;
+    width: 120px;
+    background-color: var(--yellowUSP);
+  }
+  
+  .submit:hover{
+    color: white;
+    background-color: #aa9e84;
+  }

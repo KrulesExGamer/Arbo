@@ -1,0 +1,149 @@
+// Customized
+
+// Overrides desfault variables here
+@import 'header.module.css';
+@import 'authentication.module.css';
+@import 'landing.module.css';
+@import 'footer.module.css';
+@import 'contact.module.css';
+@import 'form.module.css';
+@import 'professional.module.css';
+@import 'users.module.css';
+@import 'cardtree.module.css';
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+// Add additional custom code here
+
+:root {
+  --darkGray: #636756;
+  --greenMossLight: #A4A174;
+  --darkCream: #E8B08C;
+  --lightCream: #E9D7C2;
+  --darkSalmon: #AC7C72;
+  --lightSalmon: #BE8A84;
+  --yellowUSP: #FFB500;
+}
+
+/********************************************
+                GLOBAIS
+*********************************************/
+.borderTest{
+  border: 1px solid red;
+  background-color: orange;
+}
+
+#testes{
+  border: 1px solid red;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background-image: url('../../public/images/backgroung.png');
+  background-attachment: fixed;
+  background-position: left;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.boxContent{
+  margin: 0 auto;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  padding: 30px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: rgba(255,255,255,0.90);
+  width: 60%;
+  min-width: 450px;
+}
+
+.backgroundWhite{
+  background-color: white;
+}
+
+h1{
+  color: var(--darkSalmon);
+  text-align: center;
+}
+
+h3{
+  margin-top: 40px;
+  color: var(--darkSalmon);
+  text-align: center;
+}
+
+h6{
+  text-decoration: underline;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 1.0em;
+}
+
+hr{
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: var(--darkSalmon);
+  text-decoration: none;
+  font-weight: 800;
+}
+
+a:hover {
+  text-decoration: none;
+  font-weight: 800;
+  color: var(--greenMossLight);
+}
+
+.bold{
+  font-weight: 800;
+}
+
+.form-floating>.form-control:focus~label,
+.form-floating>.form-control:not(:placeholder-shown)~label,
+.form-floating>.form-select~label {
+  opacity: .45;
+  transform: scale(.85) translateY(-1.0rem) translateX(1.20rem);
+}
+
+/********************************************
+                teste
+*********************************************/
+
+.containerRiskLocalization,
+.containerRiskProfessional,
+.containerRiskIdentification,
+.containerRiskHistory{
+  margin:10px;
+  margin-bottom: 50px;
+}
+
+#idRiskHistoryDate{
+  width: 130px;
+  height: 58px;
+  padding: 7px;
+  border-radius: 7px;
+  border: 1px solid lightgray;
+
+}
+.historyBoard, .professionalBoard{
+  margin-top: 20px;
+  border: 1px solid lightgray;
+  border-radius:  8px;
+  padding: 8px;
+}
+
+.containerRiskHistoryItem, .containerRiskProfessionalItem{
+  border: 1px solid lightgray;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 8px;
+  background-color: white;
+}

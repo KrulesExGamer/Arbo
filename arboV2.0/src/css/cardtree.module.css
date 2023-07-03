@@ -1,0 +1,21 @@
+.container-tree-view{
+    margin: 30px auto;
+    border-radius: 10px;
+    max-width: 800px;
+    padding: 10px;
+    box-shadow: 1px 1px 20px rgb(194, 194, 194);
+}
+
+.carouselSizeLimits{
+    height: 226px;
+    width: 100%;
+}
+
+.qrCode{
+    padding: 10px;
+    text-align: center;
+}
+
+.h3Card{
+    margin-top: 8px;
+}
