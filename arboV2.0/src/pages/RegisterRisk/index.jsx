@@ -39,6 +39,8 @@ function RegisterRisk() {
       <RiskProfessional
         professional={professionalRef} />
 
+      <h3>Documentos</h3>
+      <h3>Árvores</h3>
       <h3>Imagens</h3>
 
       <FormInputImg
