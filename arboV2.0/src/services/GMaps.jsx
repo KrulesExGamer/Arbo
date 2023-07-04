@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import env from 'dotenv/config'
 
 import { 
     GoogleMap, 
@@ -7,7 +6,7 @@ import {
     Marker 
 } from '@react-google-maps/api'
 
-const apiKey = process.env.API_GOOGLE
+const apiKey = 'sdfasdf23'
 
 function GMaps({ 
     height, 
