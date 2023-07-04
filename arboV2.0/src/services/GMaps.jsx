@@ -6,7 +6,7 @@ import {
     Marker 
 } from '@react-google-maps/api'
 
-const apiKey = 'sdfasdf23'
+const apiKey = 'AIzaSyCZdI_DHNOwpuH2jisTsavJoStwfO32EXo'
 
 function GMaps({ 
     height, 

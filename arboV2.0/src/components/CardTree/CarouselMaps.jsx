@@ -7,7 +7,7 @@ function CarouselMaps({ tree }) {
         <div className='row'>
             <div className='col'>
                 <Carousel
-                    id='idCarouselTreeView'
+                    id={'idCarouselTreeView'+tree.codigo}
                     height=''
                     width=''
                     archives={tree.images} />

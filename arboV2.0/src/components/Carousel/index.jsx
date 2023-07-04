@@ -3,11 +3,6 @@ import React from 'react'
 function Carousel({ id, archives }) {
 
     let first = true
-    archives = [
-        'images/arb1.jpg',
-        'images/arb2.jpg',
-        'images/arb3.jpg',
-    ]
 
     return (
         <div id={"carousel"+id} className="carousel slide" data-bs-ride="carousel">
