@@ -1,4 +1,4 @@
-# Projeto Arbório
+# Projeto Arbóreo
  
 ## Introdução
 O objetivo do nosso projeto é o desenvolvimento de um aplicativo que permita o armazenamento e controle da informações de árvores que costituem situações de risco no campus 1 da USP de São Carlos.
