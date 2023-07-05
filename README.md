@@ -21,4 +21,10 @@ Adicionalmente, um Administrador é capaz de cadastradar funcionários que eles 
 Existe uma conta já cadastrada no projeto como administrador para testar:
  - Email: pedro.hvn@usp.br
  - Senha: 123456789 
-## Bugs
+
+## Bugs e aspectos que poderiam ser melhorados.
+Infelizmente devido ao tempo curto e a escala do projeto nós identificamos vários bugs e problemas que causam o nosso projeto por não estar em um estado perfeito.
+* Em várias seções onde certos tipos de dados devem ser armazenados não há uma mascaras que garantem essa consistência, isso permite que por exemplo informações que deveriam ser números sejam armazenadas como letras, ou que informações fundamentais de certos formulários sejam submetidas vazias com sucesso.
+* A conexão com a base de dados não esta completa, uma quantidade de dados cadastrados não são realmente armazenados pelo sistema.
+* Na página onde mensagems deveriam ser enviadas para certos e-mails, tal envio não pode ser implementado a tempo.
+* Notificações de sucesso ou falha não puderam ser implementados a tempo no projeto, assim ao clicar em certos botões não é claramente visível se a ação foi realmente realizada.
