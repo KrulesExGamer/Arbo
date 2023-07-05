@@ -13,5 +13,12 @@ Adicionalmente, um Administrador é capaz de cadastradar funcionários que eles 
 
 ## Como instalar
 * Realize o pull do projeto no github
-* Mova-se para pasta 
+* Mova-se para pasta arboV2.0 do projeto
+* No terminal escreva: npm i --force 
+* Em sequência: npm run nodemon
+* Abra um segundo terminal e por fim rode: npm start
+
+Existe uma conta já cadastrada no projeto como administrador para testar:
+ - Email: pedro.hvn@usp.br
+ - Senha: 123456789 
 ## Bugs
