@@ -10,3 +10,8 @@ No cadastro de árvores e situações de risco foi priorizada a facilidade de us
 Existe uma lista de árvores cadastradas(Duas no momento) e uma lista de situações de risco (Nenhuma no momento) implementadas apresentando informações relevantes sobre os mesmos. Em particular a lista de árvores possui um QR Code que outros podem usar como link para a página da árvores, um carrossel de imagens que podem ser vistas clicando nas setas para trocar de imagem e as suas coordenadas geográficas junto à uma janela do google maps.
 
 Adicionalmente, um Administrador é capaz de cadastradar funcionários que eles julgam como qualificados para o contexto de avaliação de árvores, esses podem ser associados a certas situações de risco quando elas são cadastradas.
+
+## Como instalar
+* Realize o pull do projeto no github
+* Mova-se para pasta 
+## Bugs
